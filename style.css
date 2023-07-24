@@ -36,6 +36,13 @@ body {
 }
 
 
+
+
+
+.footerdialog:hover {
+cursor: pointer;
+}
+
 #shoping > img {
     width: 6%;
 
@@ -147,4 +154,104 @@ body {
 
 .bot-card > button:hover {
     cursor: pointer;
+}
+
+.name,.quantity,.price,.totalprice,.cancel,.oder{
+    font-size: 14px;
+
+}
+
+#dialogCart {
+    background-color: #d6882f;
+}
+
+.containerdialog{
+    width: 500px;
+    height: 500px;
+    
+}
+
+.containerdialog > h2 {
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#maindialog{
+    border-top: 3px solid black;
+    height: 100%;
+    width: 100%;
+}
+
+.footerdialog{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel,.oder{
+    border: 1px solid black;
+    height: 100%;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color:  rgb(219, 107, 16);
+    color: rgb(0, 0, 0);
+} 
+
+/* 
+.cancel {}
+
+.oder{
+    background-color:  black;
+    color: rgb(255, 255, 255);
+} */
+
+#overlay {
+    position: fixed;
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 2; 
+    cursor: pointer;
+    padding-top: 100px;
+  }
+
+  .update,.delete{
+    height: 30px;
+    width: 60px;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.containerupde{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

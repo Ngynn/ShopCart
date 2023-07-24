@@ -10,7 +10,7 @@
 
 <body>
     <div id="header-list">
-        
+
         <div id="topbar">
             <div id="button">
                 <img src="https://file.hstatic.net/1000075078/file/vector_706a88566eab4f009bed6eea93cd890b.png"
@@ -22,17 +22,23 @@
                 Đặt hàng: 1800.6936
             </div>
             <div id="openGioHang">
-                <div>Giỏ hàng</div>
-                <div class="cart_item"></div>
+                <div id="cart" onclick="opendialog()">Giỏ hàng</div>
             </div>
-            <dialog id="shopCart">
-                <h2>Giỏ hàng</h2>
-                
-                <div class="listProduct">
+            <div id="overlay">
+                <dialog id="dialogCart">
+                    <div class="containerdialog">
+                        <h2>GIỎ HÀNG</h2>
+                        <div id="maindialog">
 
-                </div>
-                <button id="closeCartBtn">Đóng</button>
-            </dialog>
+                        </div>
+                        <div class="footerdialog">
+                            <div class="oder" onclick="oder()" style="font-size: medium;">Đặt hàng</div>
+                            <div class="cancel" onclick="closeDialog()" style="font-size: medium;">Đóng</div>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+
         </div>
 
 
@@ -49,7 +55,7 @@
                 <div id="button">Tuyển dụng</div> -->
         </div>
     </div>
-    
+
 
     <div class="main">
         <div class="title">Cà phê tại nhà</div>
@@ -112,7 +118,6 @@
                 hi@thecoffeehouse.vn</div>
             <div>© 2014-2022 Công ty cổ phần thương mại dịch vụ Trà Cà Phê VN mọi quyền bảo lưu</div>
         </div>
-
 
         <script src="script.js"></script>
 </body>
