@@ -145,11 +145,16 @@ for (let j = 0; j < productList.length; j++) {
 
 
 let open = document.getElementById("openGioHang")
-console.log(open);
-
-open.addEventListener("click", () =>{
+open.addEventListener("click", () => {
+  for (let i = 0; i < cartList.length; i++) {
+    // buildProductCart(cartList[i]);
+    
+    let listProduct = document.getElementsByClassName("listProduct");
+    listProduct[0].appendChild(buildProductCart(cartList[i]));
+    console.log(listProduct);
+  }
   shopCart.showModal();
-  list();
+
 })
 
 
@@ -157,20 +162,26 @@ let shopCart = document.getElementById("shopCart");
 
 
 let closeCartBtn = document.getElementById("closeCartBtn");
-closeCartBtn.addEventListener("click", ()=> {
+closeCartBtn.addEventListener("click", () => {
   shopCart.close();
 })
 
-function list(cafe) {
+
+
+function buildProductCart(cafe) {
   let cart = document.createElement("div");
   cart.className = "cart_item";
+  // Object.assign(cart.style, {
+  //   alignItem: "center",
+  //   //   backgroundColor: "green",
+  // });
   cart.innerHTML = `
     <div class="item">
       <div class="item-detail">
         <div class="name"><b>${cafe.name}</b></div>
         <div class="cost"><b>${cafe.price}₫</b></div>
       </div>
-      <div class="item-desc">Số lượng ${cafe.quantity}</div>
+      <div class="item-desc">Số lượng ${cafe.stock}</div>
     
     </div>
       `;
@@ -179,14 +190,61 @@ function list(cafe) {
 
   let btnAdd = document.createElement("button");
   let boldText = document.createElement("b");
-  boldText.innerText = "Thêm";
+  boldText.innerText = "Thêm sản phẩm";
 
+  let btnBoxDelt = document.createElement("div");
+  btnBoxDelt.className = "bot-card-delt";
+  let btnDelt = document.createElement("button");
+  let boldTextDelt = document.createElement("b");
+  boldTextDelt.innerText = "Xóa sản phâm";
   btnAdd.appendChild(boldText);
   btnBox.appendChild(btnAdd);
-  card.appendChild(btnBox);
+  cart.appendChild(btnBox);
 
+  btnDelt.appendChild(boldTextDelt);
+  btnBoxDelt.appendChild(btnDelt);
+  cart.appendChild(btnBoxDelt);
+
+  btnBox.addEventListener("click", () => {
+    if (cafe.quantity > 0) {
+      cafe.quantity--;
+      addToCart(cafe);
+      cart.innerHTML = `
+        <div class="item">
+          <div class="item-detail">
+            <div class="name"><b>${cafe.name}</b></div>
+            <div class="cost"><b>${cafe.price}₫</b></div>
+          </div>
+          <div class="item-desc">Số lượng ${cafe.stock}</div>
+  
+        </div>
+          `;
+      btnAdd.appendChild(boldText);
+      btnBox.appendChild(btnAdd);
+      cart.appendChild(btnBox);
+    } else {
+      alert("Hết sản phẩm rồi !!!!");
+      return;
+    }
+  });
+
+  // btnBoxDelt.addEventListener("click", () => {
+  //   if (cafe.stock > 0) {
+  //     cart.remove;
+  //     btnDelt.appendChild(boldTextDelt);
+  //     btnBoxDelt.appendChild(btnDelt);
+  //     cart.appendChild(btnBoxDelt);
+  //   }
+  // })
+
+  return cart;
 
 }
+
+function render() {
+  
+}
+
 
 
 
